@@ -4,9 +4,9 @@ class UserAccount(db.Model):
     """
     User capable of adding tasks
 
-    :param str email: email address of user
-    :param str username: username of user
-    :param str password: encrypted password for the user
+    :param str email: email address of user_account
+    :param str username: username of user_account
+    :param str password: encrypted password for the user_account
     
     """
     __tablename__ = "user_account"
