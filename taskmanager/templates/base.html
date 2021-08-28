@@ -17,14 +17,15 @@
 
   <body>
   <div class="header">
+    <!-- Main Nav -->
     <nav class="nav-extended grey">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Task Manager</a>
+        <a href="{{ url_for('home' )}}" class="brand-logo">Task Manager</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">JavaScript</a></li>
+          <li><a href="{{ url_for('home' )}}">Home</a></li>
+          <li><a href="">New Task</a></li>
+          <li><a href="{{ url_for('categories' )}}">Categories</a></li>
         </ul>
       </div>
       <div class="nav-content">
@@ -39,14 +40,16 @@
         </ul>
       </div>
     </nav>
-  
+    <!-- Mobile Side Nav -->
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
+      <li><a href="{{ url_for('home' )}}">Home</a></li>
+      <li><a href="">New Task</a></li>
+      <li><a href="{{ url_for('categories' )}}">Categories</a></li>
     </ul>
   </div>
-  <div class="main grey lighten-4">
+  <!-- Main content -->
+  <main class="grey lighten-4">
+    <!-- Day Tabs -->
     <div class="row">
       <div id="monday" class="col s12 grey lighten-4">
         <div class="card">
@@ -119,73 +122,17 @@
         </div>
       </div>
     </div>
+    <!-- Block Content-->
     <div class="row">
-      <div class="col s12">
-        <div class="card-panel col s1 grey">
-          <div class="card-content white-text">
-            Card 1              
-          </div>
-        </div>
-        <div class="card-panel col s1 grey">
-          <div class="card-content white-text">
-            Card 2
-          </div>
-        </div>
-        <div class="card-panel col s1 grey">
-          <div class="card-content white-text">
-            Card 3
-          </div>
-        </div>
-        <div class="card-panel col s1 grey">
-          <div class="card-content white-text">
-            Card 4
-          </div>
-        </div>
-        <div class="card-panel col s1 grey">
-          <div class="card-content white-text">
-            Card 5
-          </div>
-        </div>
-        <div class="card-panel col s1 grey">
-          <div class="card-content white-text">
-            Card 6
-          </div>
-        </div>
-        <div class="card-panel col s1 grey">
-          <div class="card-content white-text">
-            Card 7
-          </div>
-        </div>
-        <div class="card-panel col s1 grey">
-          <div class="card-content white-text">
-            Card 8
-          </div>
-        </div>
-        <div class="card-panel col s1 grey">
-          <div class="card-content white-text">
-            Card 9
-          </div>
-        </div>
-        <div class="card-panel col s1 grey">
-          <div class="card-content white-text">
-            Card 10
-          </div>
-        </div>
-        <div class="card-panel col s1 grey">
-          <div class="card-content white-text">
-            Card 11
-          </div>
-        </div>
-        <div class="card-panel col s1 grey">
-          <div class="card-content white-text">
-            Card 12
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        {% block content %}
+        {% endblock %}
+        {% block tasks %}
+        {% endblock %}
 
-  <footer class="page-footer">
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="page-footer grey">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -214,7 +161,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="{{url_for('static', filename='vendor/materialize/js/materialize.min.js')}}"></script>
-    <script>M.AutoInit();</script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/script.js')}}"></script>
+    <!-- <script>M.AutoInit();</script> -->
   </body>
 </html>
       
